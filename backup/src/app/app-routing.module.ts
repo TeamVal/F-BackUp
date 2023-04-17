@@ -9,6 +9,10 @@ import { LenguajeInsertarComponent } from './component/lenguaje/lenguaje-inserta
 import { EstudianteInsertarComponent } from './component/estudiante/estudiante-insertar/estudiante-insertar.component';
 import { EstudianteComponent } from './component/estudiante/estudiante.component';
 
+import { RecursoComponent } from './component/recurso/recurso.component';
+import { RecursoInsertarComponent } from './component/recurso/recurso-insertar/recurso-insertar.component';
+
+
 const routes: Routes = [
   {
     path:'asesores',component:AsesorComponent, children:[
@@ -33,7 +37,24 @@ const routes: Routes = [
         component: EstudianteInsertarComponent,
       },
     ],
+  },
+  
+  
+  {
+    path:'recursos',
+    component:RecursoComponent,
+    children:[
+
+  {
+
+    path:'recursosinsertar',
+    component:RecursoInsertarComponent,
+  },
+],
   }
+  
+  
+ 
 ];
 
 @NgModule({
