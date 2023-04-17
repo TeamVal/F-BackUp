@@ -16,12 +16,19 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {  MatButtonModule } from '@angular/material/button';
 import { AsesorInsertarComponent } from './component/asesor/asesor-insertar/asesor-insertar.component';
 
+import { LenguajeComponent } from './component/lenguaje/lenguaje.component';
+import { LenguajeListarComponent } from './component/lenguaje/lenguaje-listar/lenguaje-listar.component';
+import { LenguajeInsertarComponent } from './component/lenguaje/lenguaje-insertar/lenguaje-insertar.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     AsesorComponent,
     AsesorListarComponent,
-    AsesorInsertarComponent
+    AsesorInsertarComponent,
+    LenguajeComponent,
+    LenguajeListarComponent,
+    LenguajeInsertarComponent
   ],
   imports: [
     BrowserModule,
