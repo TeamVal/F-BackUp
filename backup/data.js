@@ -59,6 +59,36 @@ module.exports = function () {
         abrev: ".py",
         tipoLeng:"C#",
       }
+    ],
+     estudiantes: [
+      {
+        id:1,
+        nombre: "Maria",
+        apellido: "Villanueva",
+        telefono:"95863535",
+        correo:"maria@gmail.com"
+      },
+      {
+        id:2,
+        nombre: "Lia",
+        apellido: "Quispe",
+        telefono:"934753646",
+        correo:"lia@gmail.com"
+      },
+      {
+        id:3,
+        nombre: "Rick",
+        apellido: "Sanchez",
+        telefono:"675345235",
+        correo:"sanchez@gmail.com"
+      },
+      {
+        id:4,
+        nombre: "Juan",
+        apellido: "Perez",
+        telefono:"988723245",
+        correo:"Juan@gmail.com"
+      }
     ]
   }
   return data
