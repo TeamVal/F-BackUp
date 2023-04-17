@@ -6,6 +6,9 @@ import { AsesorInsertarComponent } from './component/asesor/asesor-insertar/ases
 import { LenguajeComponent } from './component/lenguaje/lenguaje.component';
 import { LenguajeInsertarComponent } from './component/lenguaje/lenguaje-insertar/lenguaje-insertar.component';
 
+import { EstudianteInsertarComponent } from './component/estudiante/estudiante-insertar/estudiante-insertar.component';
+import { EstudianteComponent } from './component/estudiante/estudiante.component';
+
 const routes: Routes = [
   {
     path:'asesores',component:AsesorComponent, children:[
@@ -20,6 +23,16 @@ const routes: Routes = [
         path:'lenguajesinsertar',component:LenguajeInsertarComponent,
       }
     ]
+  },
+  {
+    path: 'estudiantes',
+    component: EstudianteComponent,
+    children: [
+      {
+        path: 'estudiantesinsertar',
+        component: EstudianteInsertarComponent,
+      },
+    ],
   }
 ];
 
