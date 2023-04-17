@@ -1,0 +1,9 @@
+.example-full-width {
+  width: 100%;
+}
+div {
+  width: 80%;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
