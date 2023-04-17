@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Backup</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/asesores">Asesor</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/estudiantes">Estudiante</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/lenguajes">Lenguaje</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/recursos">Recurso Aprendizaje</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/calificaciones">Calificaciones</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<body>
+  <br>
+  <div style="text-align: center;">
+    <h1 class="titulo">Lista de Lenguajes</h1>
+  </div>
+  <div class="container" style="text-align: center">
+    <form [formGroup]="form" (submit)="aceptar()">
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Código</mat-label>
+        <input matInput required placeholder="Código" formControlName="id">
+      </mat-form-field>
+      <br>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Descripcion</mat-label>
+        <input matInput required placeholder="Descripcion" formControlName="desc">
+      </mat-form-field>
+      <br>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Abreviacion</mat-label>
+        <input matInput required placeholder="Abreviacion" formControlName="abrev">
+      </mat-form-field>
+      <br>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Tipo de lenguaje</mat-label>
+        <input matInput required placeholder="Tipo de lenguaje" formControlName="tipoLeng">
+      </mat-form-field>
+      <br>
+
+      <button mat-stroked-button color="accent">Aceptar</button>
+      <button mat-stroked-button routerLink="/lenguajes">Cancelar</button>
+      <p>{{mensaje}}</p>
+
+    </form>
+  </div>
+
+</body>
+</html>
