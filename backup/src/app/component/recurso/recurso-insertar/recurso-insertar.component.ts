@@ -4,7 +4,7 @@ import  {recusosA} from 'src/app/model/recursosA';
 import { Component, OnInit} from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
-import { Router } from '@angular/router';
+import { Router, Params, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-recurso-insertar',
   templateUrl: './recurso-insertar.component.html',
@@ -17,7 +17,7 @@ export class RecursoInsertarComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   recur: recusosA = new recusosA();
   mensaje: string = '';
-  constructor(private pS: RecursoAService, private router: Router) {}
+  constructor(private pS: RecursoAService, private router: Router,private route:ActivatedRoute) {}
 
   ngOnInit(): void {
      this.route.params.subscribe((data:Params)=>{
