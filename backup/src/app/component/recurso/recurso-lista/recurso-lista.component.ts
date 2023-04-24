@@ -9,16 +9,21 @@ import { RecursoAService} from 'src/app/service/recursosA.service';
     styleUrls: ['./recurso-lista.component.css'],
 })
 export class RecursolistarComponent implements OnInit{
-    dataSource:MatTableDataSource<recusosA>=new MatTableDataSource();
+   dataSource:MatTableDataSource<recusosA>=new MatTableDataSource();
     lista:recusosA[]=[];
-    displayedColumns:String[]=['Numero','Titulo','Tema','Tipocontenido','Url','Tamano'];
-    constructor(private pS:RecursoAService){
-  
-    }
+    displayedColumns:String[]=['Numero','Titulo','Tema','Tipocontenido','Url','Tamano','ceditar',];
+    constructor(private pS:RecursoAService){}
   ngOnInit(): void {
   
     this.pS.list().subscribe((data)=>{ 
       this.dataSource=new MatTableDataSource(data);
-    })
+    });
+    this.pS.getList().subscribe((data)=>{
+
+      this.dataSource=new MatTableDataSource(data);
+    });
+  }
+  filtrar(e:any){
+    this.dataSource.filter=e.target.value.trim();
   }
 }
