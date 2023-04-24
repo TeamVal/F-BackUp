@@ -24,4 +24,12 @@ export class RecursoAService {
   setList(listaNueva: recusosA[]) {
     this.listaCambio.next(listaNueva);
   }
+  listId(id: number) {
+    return this.http.get<recusosA>(`${this.url}/${id}`);
+  }
+
+  update(p: recusosA) {
+    return this.http.put(this.url + '/' + p.id, p);
+  }
 }
+
