@@ -45,11 +45,8 @@ const routes: Routes = [
     component:RecursoComponent,
     children:[
 
-  {
-
-    path:'recursosinsertar',
-    component:RecursoInsertarComponent,
-  },
+  {path:'recursosinsertar',component:RecursoInsertarComponent},
+  {path:'editar/:id',component:RecursoInsertarComponent}
 ],
   }
   
