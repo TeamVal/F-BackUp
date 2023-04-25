@@ -24,4 +24,10 @@ export class AsesorService {
   setList(listaNueva:Asesor[]){
     this.listaCambio.next(listaNueva);
   }
+  listId(id:number){
+    return this.http.get<Asesor>(`${this.url}/${id}`)
+  }
+  update(a:Asesor){
+    return this.http.put(this.url+'/'+a.id, a);
+  }
 }
