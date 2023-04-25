@@ -24,4 +24,10 @@ getList(){
 setList(listaNueva:Lenguaje[]){
     this.listaCambio.next(listaNueva);
   }
+  listId(id:number){
+    return this.http.get<Lenguaje>(`${this.url}/${id}`)
+  }
+  update(l:Lenguaje){
+    return this.http.put(this.url+'/'+l.id, l);
+  }
 }
