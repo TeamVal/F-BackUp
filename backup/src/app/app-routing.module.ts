@@ -18,6 +18,9 @@ const routes: Routes = [
     path:'asesores',component:AsesorComponent, children:[
       {
         path:'asesoresinsertar',component:AsesorInsertarComponent,
+      },
+      {
+        path:'edicion/:id',component:AsesorInsertarComponent,
       }
     ]
   },
