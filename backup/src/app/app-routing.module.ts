@@ -28,6 +28,9 @@ const routes: Routes = [
     path:'lenguajes',component:LenguajeComponent, children:[
       {
         path:'lenguajesinsertar',component:LenguajeInsertarComponent,
+      },
+      {
+        path:'edicion/:id',component:LenguajeInsertarComponent,
       }
     ]
   },
