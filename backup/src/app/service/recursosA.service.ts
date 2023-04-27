@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/enviroment';
+import { environment } from 'src/environments/environment';
 import { recusosA } from '../model/recursosA';
 import { Subject } from 'rxjs';
 const base_url=environment.base
@@ -10,6 +10,7 @@ const base_url=environment.base
 export class RecursoAService {
   private url=`${base_url}/RecursoAprendizaje`
   private listaCambio=new Subject<recusosA[]>();
+  private confirmaEliminacion = new Subject<Boolean>()
   constructor(private http:HttpClient) { }
   list(){
     return this.http.get<recusosA[]>(this.url);
@@ -31,5 +32,17 @@ export class RecursoAService {
   update(p: recusosA) {
     return this.http.put(this.url + '/' + p.id, p);
   }
+
+  eliminar(id: number) {
+
+    return this.http.delete(`${this.url}/${id}`);
+  }
+  getConfirmaEliminacion() {
+    return this.confirmaEliminacion.asObservable();
+  }
+  setConfirmaEliminacion(estado: Boolean) {
+    this.confirmaEliminacion.next(estado);
+  }
 }
+
 
