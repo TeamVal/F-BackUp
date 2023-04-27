@@ -12,6 +12,10 @@ export class AsesorService {
   private url=`${base_url}/asesores`
   private listaCambio=new Subject<Asesor[]>
   constructor(private http:HttpClient) { }
+  private confirmaEliminacion = new Subject<Boolean>()
+
+
+
   list(){
     return this.http.get<Asesor[]>(this.url);
   }
@@ -30,4 +34,15 @@ export class AsesorService {
   update(a:Asesor){
     return this.http.put(this.url+'/'+a.id, a);
   }
+  eliminar(id: number) {
+
+    return this.http.delete(`${this.url}/${id}`);
+  }
+  getConfirmaEliminacion() {
+    return this.confirmaEliminacion.asObservable();
+  }
+  setConfirmaEliminacion(estado: Boolean) {
+    this.confirmaEliminacion.next(estado);
+  }
 }
+
