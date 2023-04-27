@@ -38,6 +38,8 @@ import { EstudianteInsertarComponent } from './component/estudiante/estudiante-i
 import { RecursolistarComponent } from './component/recurso/recurso-lista/recurso-lista.component';
 import { RecursoComponent } from './component/recurso/recurso.component';
 import { RecursoInsertarComponent } from './component/recurso/recurso-insertar/recurso-insertar.component';
+import { RecursoDialogoComponent } from './component/recurso/recurso-lista/Recursos-Dialogo/Recurso-Dialogo.component';
+
 
 
 import { NavbarComponent } from './component/navbar/navbar.component';
@@ -59,7 +61,8 @@ import { NavbarComponent } from './component/navbar/navbar.component';
     RecursoComponent, 
     RecursolistarComponent, 
     RecursoInsertarComponent,
-    NavbarComponent
+    NavbarComponent,
+    RecursoDialogoComponent
    
   ],
   imports: [
