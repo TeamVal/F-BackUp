@@ -11,6 +11,7 @@ export class LenguajeService {
 
   private url=`${base_url}/lenguajes`
   private listaCambio= new Subject<Lenguaje[]>
+  private confirmaEliminacion = new Subject<Boolean>()
   constructor(private http:HttpClient) { }
   list(){
     return this.http.get<Lenguaje[]>(this.url);
@@ -29,5 +30,15 @@ setList(listaNueva:Lenguaje[]){
   }
   update(l:Lenguaje){
     return this.http.put(this.url+'/'+l.id, l);
+  }
+  eliminar(id: number) {
+
+    return this.http.delete(`${this.url}/${id}`);
+  }
+  getConfirmaEliminacion() {
+    return this.confirmaEliminacion.asObservable();
+  }
+  setConfirmaEliminacion(estado: Boolean) {
+    this.confirmaEliminacion.next(estado);
   }
 }
