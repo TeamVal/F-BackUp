@@ -1,36 +1,19 @@
-h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-/* Estilos para la tabla */
-table {
+.backcolor{
+    background-color:  #B1ABF8;
+  }
+  
+  
+  html, body{
+    height: 1000px;
     width: 100%;
-    border-collapse: collapse;
-}
-
-th, td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
-
-th {
-    background-color: #f2f2f2;
-    color: #555;
-}
-
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-/* Estilos para los enlaces */
-a {
-    color: #0077c0;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
+    background: linear-gradient(0deg, rgba(30, 135, 143, 0.67) 0%, rgba(255, 255, 255, 0) 50.68%);
+  }
+  
+  
+  /* titulo de la tabla */
+  .t-table{
+    color:#1e878f;
+    text-align: center;
+    font-size: 29px;
+    font-weight: bold;
+  }
