@@ -23,6 +23,7 @@ import { LenguajeInsertarComponent } from './component/lenguaje/lenguaje-inserta
 import { EstudianteComponent } from './component/estudiante/estudiante.component';
 import { EstudianteListarComponent } from './component/estudiante/estudiante-listar/estudiante-listar.component';
 import { EstudianteInsertarComponent } from './component/estudiante/estudiante-insertar/estudiante-insertar.component';
+import { EstudianteDialogoComponent } from './component/estudiante/estudiante-listar/estudiante-dialogo/estudiante-dialogo.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { EstudianteInsertarComponent } from './component/estudiante/estudiante-i
     LenguajeInsertarComponent,
     EstudianteComponent,
     EstudianteListarComponent,
-    EstudianteInsertarComponent
+    EstudianteInsertarComponent,
+    EstudianteDialogoComponent
   ],
   imports: [
     BrowserModule,
