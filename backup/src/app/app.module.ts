@@ -17,6 +17,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AsesorComponent } from './component/asesor/asesor.component';
 import { AsesorListarComponent } from './component/asesor/asesor-listar/asesor-listar.component';
@@ -35,6 +36,8 @@ import { EstudianteInsertarComponent } from './component/estudiante/estudiante-i
 import { RecursolistarComponent } from './component/recurso/recurso-lista/recurso-lista.component';
 import { RecursoComponent } from './component/recurso/recurso.component';
 import { RecursoInsertarComponent } from './component/recurso/recurso-insertar/recurso-insertar.component';
+
+import { NavbarComponent } from './component/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -79,3 +82,4 @@ import { RecursoInsertarComponent } from './component/recurso/recurso-insertar/r
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
