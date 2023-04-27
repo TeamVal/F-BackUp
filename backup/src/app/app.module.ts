@@ -28,6 +28,8 @@ import { AsesorDialogoComponent } from './component/asesor/asesor-listar/asesor-
 import { LenguajeComponent } from './component/lenguaje/lenguaje.component';
 import { LenguajeListarComponent } from './component/lenguaje/lenguaje-listar/lenguaje-listar.component';
 import { LenguajeInsertarComponent } from './component/lenguaje/lenguaje-insertar/lenguaje-insertar.component';
+import { LenguajeDialogoComponent } from './component/lenguaje/lenguaje-listar/lenguaje-dialogo/lenguaje-dialogo.component';
+
 
 import { EstudianteComponent } from './component/estudiante/estudiante.component';
 import { EstudianteListarComponent } from './component/estudiante/estudiante-listar/estudiante-listar.component';
@@ -49,6 +51,7 @@ import { NavbarComponent } from './component/navbar/navbar.component';
     LenguajeComponent,
     LenguajeListarComponent,
     LenguajeInsertarComponent,
+    LenguajeDialogoComponent,
     EstudianteComponent,
     EstudianteListarComponent,
     EstudianteInsertarComponent,
