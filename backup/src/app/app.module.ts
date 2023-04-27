@@ -23,7 +23,14 @@ import { LenguajeInsertarComponent } from './component/lenguaje/lenguaje-inserta
 import { EstudianteComponent } from './component/estudiante/estudiante.component';
 import { EstudianteListarComponent } from './component/estudiante/estudiante-listar/estudiante-listar.component';
 import { EstudianteInsertarComponent } from './component/estudiante/estudiante-insertar/estudiante-insertar.component';
+
+import { RecursolistarComponent } from './component/recurso/recurso-lista/recurso-lista.component';
+import { RecursoComponent } from './component/recurso/recurso.component';
+import { RecursoInsertarComponent } from './component/recurso/recurso-insertar/recurso-insertar.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDialogModule } from '@angular/material/dialog';
 import { EstudianteDialogoComponent } from './component/estudiante/estudiante-listar/estudiante-dialogo/estudiante-dialogo.component';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -37,7 +44,11 @@ import { EstudianteDialogoComponent } from './component/estudiante/estudiante-li
     EstudianteComponent,
     EstudianteListarComponent,
     EstudianteInsertarComponent,
-    EstudianteDialogoComponent
+    EstudianteDialogoComponent,
+    RecursoComponent, 
+    RecursolistarComponent, 
+    RecursoInsertarComponent, 
+   
   ],
   imports: [
     BrowserModule,
@@ -51,7 +62,11 @@ import { EstudianteDialogoComponent } from './component/estudiante/estudiante-li
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatButtonModule
+    MatButtonModule,
+    MatToolbarModule,
+    ReactiveFormsModule,
+    MatDialogModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
