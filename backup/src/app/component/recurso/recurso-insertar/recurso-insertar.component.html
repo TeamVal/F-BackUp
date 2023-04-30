@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+     <app-navbar></app-navbar>
+    <br>
+    <div style="text-align: center;">
+      <h1 class="t-table">Recursos De Aprendizaje Registrar</h1>
+    </div>
+    <div class="container" style="text-align: center;">
+    <form [formGroup]="form" (submit)="aceptar()">
+      <mat-form-field class="example-full-width">
+        <mat-label>Código</mat-label>
+        <input matInput placeholder="Código" formControlName="id" />
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Titulo</mat-label>
+        <input matInput placeholder="ingrese el Titulo" formControlName="titulo" />
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Tema</mat-label>
+        <input matInput placeholder="ingrese el Tema" formControlName="tema" />
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Tipo Contenido</mat-label>
+        <input matInput placeholder="ingrese el Titulo" formControlName="tipocontenido" />
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>URL</mat-label>
+        <input matInput placeholder="ingrese el URL" formControlName="url" />
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Tamano</mat-label>
+        <input matInput placeholder="ingrese el tamaño" formControlName="tamano" />
+      </mat-form-field>
+      <br>
+      <button mat-button color="primary">Aceptar</button>
+      <button mat-button color="warn" routerLink="/recursos"><span class='material-icons'>cancel</span></button>
+      <br>
+      <p>{{ mensaje }}</p>
+    </form>
+  </div>
+      </body>
+
+      </html>
