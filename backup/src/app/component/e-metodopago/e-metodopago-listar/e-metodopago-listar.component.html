@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  
+  <body>
+    <div class="container">
+      <div style="text-align: center;">
+        <br>
+        <h1 class="t-table">Mi lista de Metodos de Pago</h1>
+      </div>
+      <div style="text-align:left;">
+        <button  mat-raised-button style="background:#1e878f; color: #fff; font-size: 20px;" 
+        [routerLink]="['e-metodopagoinsertar',idestudiante]">Nuevo<mat-icon>credit_card</mat-icon>
+        </button>
+      </div>
+      <br>  
+      <div style="text-align: center;">
+        <div class="custom-form-field">
+          <input class="custom-input" type="text" (keyup)="filtrar($event)" placeholder="Buscar">
+        </div>
+      </div>
+      
+      <div class="card-container">
+        <div class="card" *ngFor="let element of dataSource.data.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)">
+          <!-- Contenido de la card -->
+          <!-- Contenido de la card -->
+          <div class="card-header" >
+            <h2 class="card-title">{{ element.nombre }}</h2>
+          </div>
+          <div class="card-body">
+            <p><strong>N°:</strong> {{ element.idMetodoPago }}</p>
+            <p><strong>Tipo:</strong> {{ element.tipo }}</p>
+            <p><strong>Número: </strong>{{ element.numero }}</p>
+            <p><strong>Fecha caducidad:</strong> {{ element.fechacaducidad | date:'dd/MM/yyyy' }}</p>
+          </div>
+          <div class="card-footer">
+            <div class="icon-container">
+              <mat-icon [routerLink]="['edicion',idestudiante,element.idMetodoPago]">border_color</mat-icon>
+            </div>
+            
+            <div class="icon-container">
+              <mat-icon  (click)="confirmar(element.idMetodoPago)">delete</mat-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <mat-paginator
+        [length]="totalItems"
+        [pageSize]="itemsPerPage"
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="onPageChanged($event)"
+      ></mat-paginator>
+    </div>
+
+  </body>
+</html>
+
