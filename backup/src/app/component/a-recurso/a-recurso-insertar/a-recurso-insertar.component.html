@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>
+    <h1 class="t-table">{{ edicion ? 'Actualizar Recurso de Aprendizaje' : ' Registrar Recurso de Aprendizaje' }}</h1>
+
+    <div class="container">
+      <form [formGroup]="form" (submit)="aceptar()">
+
+      <mat-form-field class="example-full-width">
+        <mat-label>ID</mat-label>
+        <input matInput placeholder="ID" formControlName="idrecurso">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Título</mat-label>
+        <input matInput required placeholder="Título" formControlName="titulo">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Tema</mat-label>
+        <input matInput required placeholder="Tema" formControlName="tema">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Tipo de contenido</mat-label>
+        <mat-select matNativeControl formControlName="tipoContenido">
+          <mat-option value="Videos">Videos</mat-option>
+          <mat-option value="Textos">Textos</mat-option>
+          <mat-option value="Infografías">Infografías</mat-option>
+          <mat-option value="Ejercicios">Ejercicios</mat-option>
+          <mat-option value="Cuestionarios">Cuestionarios</mat-option>
+          <mat-option value="Resúmenes">Resúmenes</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>URL</mat-label>
+        <input matInput required placeholder="URL" formControlName="url">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Tamaño</mat-label>
+        <input matInput required placeholder="Tamaño" formControlName="tamano">
+      </mat-form-field>
+
+      
+      <div class="botones-container">
+
+        <button mat-raised-button style="background:#B1ABF8; color: #fff;" (click)="aceptar()">Aceptar</button>
+        <button mat-raised-button [routerLink]="['/pages','homeasesor', this.idasesor, 'a-recurso', this.idasesor]">Cancelar</button>
+      </div>
+      
+
+      <p>{{mensaje}}</p>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  
+  <body>
+    <div class="container">
+      <div style="text-align: center;">
+        <br>
+        <h1 class="t-table">Mis solicitudes de asesorías</h1>
+
+
+      </div>
+      <div style="text-align:left;"><button  mat-raised-button class="style-btn" 
+        [routerLink]="['e-solicitudinsertar',idestudiante]">
+        <mat-icon>add_box</mat-icon>
+        Solicitar</button></div>
+      <br>  
+      <div style="text-align: center;">
+        <div class="custom-form-field">
+          <input class="custom-input" type="text" (keyup)="filtrar($event)" placeholder="Buscar">
+        </div>
+      </div>
+      
+      <div class="card-container">
+        <div class="card" *ngFor="let element of dataSource.data.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)">
+          <!-- Contenido de la card -->
+          <!-- Contenido de la card -->
+          <div class="card-header" >
+            <h2 class="card-title">{{ element.nombre }}</h2>
+          </div>
+          <div class="card-body">
+            <p><strong>N°:</strong>  {{ element.idsolicitud }}</p>
+            <p><strong>Descripción:</strong>  {{ element.descrip }}</p>
+            <p><strong>Fecha de solicitud:</strong>  {{ element.fechasol | date:'dd/MM/yyyy' }}</p>
+          </div>
+          <div class="card-footer">
+            <div class="icon-container">
+              <mat-icon class="edit-icon"  [routerLink]="['edicion',idestudiante,element.idsolicitud]">border_color</mat-icon>
+            </div>
+            <div class="icon-container">
+              <mat-icon class="delete-icon"  (click)="confirmar(element.idsolicitud)">delete</mat-icon>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <br>
+      <mat-paginator
+        [length]="totalItems"
+        [pageSize]="itemsPerPage"
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="onPageChanged($event)"
+      ></mat-paginator>
+    </div>
+
+  </body>
+</html>
+

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+      <!--<app-navbar></app-navbar> -->
+    
+      <div class="container">
+        <br>
+
+        <div style="text-align: center;">
+          <h1 class="t-table">Recursos De Aprendizaje</h1>
+        
+        </div>
+        <br>
+        <div style="text-align:left;">
+          <button mat-button class="style-btn" [routerLink]="['a-recursoinsertar',idasesor]">
+            <mat-icon>add_box</mat-icon>
+            Registrar</button>
+        </div>
+        <br>
+        <div style="text-align: center;">
+          <div class="custom-form-field">
+            <input class="custom-input" type="text" (keyup)="filtrar($event)" placeholder="Buscar">
+          </div>
+
+        </div>
+
+        <div class="card-container">
+          <div class="card" *ngFor="let element of dataSource.data.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)">
+            <!-- Contenido de la card -->
+            <!-- Contenido de la card -->
+            <div class="card-header">
+              <h2 class="card-title">{{ element.titulo }}</h2>
+            </div>
+            <div class="card-body">
+              <p><strong>N°: </strong> {{ element.idrecurso }}</p>
+              <p><strong>Contenido: </strong> {{ element.tipoContenido }}</p>
+              <p><strong>Tema: </strong> {{ element.tema }}</p>
+              <p><strong>URL: </strong> {{ element.url }}</p>
+              <p><strong>Tamaño: </strong> {{ element.tamano }}</p>
+            </div>
+            <div class="card-footer">
+              <div class="icon-container">
+                <mat-icon class="edit-icon" [routerLink]="['edicion', idasesor, element.idrecurso]">border_color</mat-icon>
+              </div>
+              <div class="icon-container">
+                <mat-icon class="delete-icon" (click)="confirmar(element.idrecurso)">delete</mat-icon>
+              </div>
+             
+            </div>
+          </div>
+        </div>
+  
+        <br>
+        <mat-paginator
+        [length]="totalItems"
+        [pageSize]="itemsPerPage"
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="onPageChanged($event)"
+      ></mat-paginator>
+    </div>
+</body>
+</html>
