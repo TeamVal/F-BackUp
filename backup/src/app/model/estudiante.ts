@@ -1,7 +1,10 @@
+import { Users } from "./users"
+
 export class Estudiante{
-  id:number=0
+  idEstudiante:number=0
   nombre:string=""
   apellido:string=""
   telefono:number=0
   correo:string=""
+  users: Users=new Users();
 }
