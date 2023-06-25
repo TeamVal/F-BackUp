@@ -1,0 +1,62 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1>Ingresa un método de pago</h1>
+
+    <div class="container">
+      <form [formGroup]="form" (submit)="aceptar()">
+        <mat-form-field class="example-full-width">
+          <mat-label>Id</mat-label>
+          <input matInput placeholder="Id" formControlName="idMetodoPago">
+        </mat-form-field>
+  
+        <mat-form-field class="example-full-width">
+          <mat-label>Banco</mat-label>
+          <mat-select formControlName="nombre">
+            <mat-option value="BCP">BCP</mat-option>
+            <mat-option value="Interbank">Interbank</mat-option>
+            <mat-option value="Scotiabank">Scotiabank</mat-option>
+            <mat-option value="BBVA">BBVA</mat-option>
+            <mat-option value="Ripley">Ripley</mat-option>
+            <mat-option value="Falabella">Falabella</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill" class="example-full-width">
+          <mat-label>Tipo</mat-label>
+          <mat-select formControlName="tipo">
+            <mat-option value="Tarjeta crédito">Tarjeta de crédito</mat-option>
+            <mat-option value="Tarjeta débito">Tarjeta de débito</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field class="example-full-width">
+          <mat-label>Número</mat-label>
+          <input matInput required placeholder="Número" formControlName="numero">
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill" class="example-full-width">
+          <mat-label>Fecha de caducidad</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="fechacaducidad">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+  
+        <div class="containerbtn">
+          <button mat-raised-button style="background:#1e878f; color: #fff;" (click)="aceptar()">Aceptar</button>
+          <button mat-raised-button [routerLink]="['/pages','homeestudiante', idestudiante, 'e-metodopago', idestudiante]">Cancelar</button>
+        </div>
+        <p>{{mensaje}}</p>
+      </form>
+    </div>
+  </body>
+  </html>
+
+
