@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <br>
+  <div class="container">
+    <div style=" text-align: center;">
+      <h1 class="t-table" >Lista de Modulos</h1>
+    </div>
+    
+    <div style="text-align:left;">
+      <button mat-button style="background:#1e878f; color: #fff;" routerLink="/pages/homeadmin/modulos/nuevo">Registrar</button>
+    </div>
+    
+    <div  style="text-align:right;">
+      <mat-form-field>
+        <input  matInput (keyup)="filtrar($event)" placeholder="Buscar"/>
+      </mat-form-field>
+    </div>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table table-hover table-bordered backcolor">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.idmodulo}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="titulo">
+        <th mat-header-cell *matHeaderCellDef> Titulo </th>
+        <td mat-cell *matCellDef="let element"> {{element.titulo}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="descripcion">
+        <th mat-header-cell *matHeaderCellDef> Descripcion </th>
+        <td mat-cell *matCellDef="let element"> {{element.descripcion}} </td>
+      </ng-container>
+      <ng-container matColumnDef="estado">
+        <th mat-header-cell *matHeaderCellDef> estado </th>
+        <td mat-cell *matCellDef="let element"> {{element.estado}} </td>
+  
+      </ng-container>
+      <!-- Weight Column -->
+      <ng-container matColumnDef="recurso">
+        <th mat-header-cell *matHeaderCellDef> Recurso </th>
+        <td mat-cell *matCellDef="let element"> {{element.recurso.titulo}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="microcurso">
+        <th mat-header-cell *matHeaderCellDef> Microcurso </th>
+        <td mat-cell *matCellDef="let element"> {{element.microcurso.titulo}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="ceditar">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let element">
+
+        <mat-icon [routerLink]="['editar',element.idmodulo]"> border_color</mat-icon>
+    
+        </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="celiminar">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let element">                  
+          <mat-icon (click)="confirmar(element.idmodulo)"> delete</mat-icon>
+        </td>
+
+      </ng-container>
+      
+     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" style="background-color: white;"></tr>
+    </table>
+
+  </div>
+</body>
+
+</html>
