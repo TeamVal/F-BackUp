@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  
+  <body>
+    <div class="container">
+      <div style="text-align: center;">
+        <br>
+        <h1 class="t-table">Microcursos</h1>
+        <br>
+      </div>
+
+      <div style="text-align: center;">
+        <div class="custom-form-field">
+          <input class="custom-input" type="text" (keyup)="filtrar($event)" placeholder="Buscar">
+        </div>
+      </div>
+
+      <div class="card-container">
+        <div class="card" *ngFor="let element of dataSource.data.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)">
+          <!-- Contenido de la card -->
+          <!-- Contenido de la card -->
+          <div class="card-header" [routerLink]="['/pages','homeestudiante',idestudiante,'modulo', idestudiante, element.idMicroCurso]">
+            <mat-icon class="t-icon">class</mat-icon>
+            <h2 class="card-title">{{ element.titulo }}</h2>
+          </div>
+          <div class="card-body">
+            <p><strong>Descripción: </strong> {{ element.descrip }}</p>
+            <p><strong>Tema: </strong> {{ element.tema }}</p>
+            <p><strong>Asesor: </strong>{{ element.asesor.nom }}</p>
+            <p><strong>Lenguaje: </strong> {{ element.lenguaje.tipoLeng }}</p>
+          </div>
+        </div>
+      </div>
+      <br>
+      <mat-paginator
+        [length]="totalItems"
+        [pageSize]="itemsPerPage"
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="onPageChanged($event)"
+      ></mat-paginator>
+    </div>
+
+  </body>
+</html>
