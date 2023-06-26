@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+
+  <div class="container">
+    <h1 class="center-text">Login como ADMINISTRADOR</h1>
+    <form [formGroup]="form" (submit)="aceptar()">
+      <div class="form-group">
+        <label >Usuario</label>
+        <input matInput  placeholder="Username" [(ngModel)]="username" formControlName="username">
+      </div>
+      <div class="form-group">
+        <label >Password</label>
+        <input type="password" matInput  placeholder="Password" [(ngModel)]="password" formControlName="password">
+      </div>
+
+      <div class="btn-container">
+        <button mat-raised-button style="background: linear-gradient(to bottom, #1e878f, #B1ABF8); color: #fff;">Aceptar</button>
+        <button mat-raised-button style="background:#fff; color: #000;" routerLink="/loginasesor">Asesor</button>
+        <button mat-raised-button style="background:#fff; color: #000;" routerLink="/loginestudiante">Estudiante</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

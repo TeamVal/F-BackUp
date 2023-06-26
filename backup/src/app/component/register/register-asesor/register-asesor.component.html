@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  
+  <body>
+    <div class="container">
+      <h1>Registro Asesor</h1>
+      <form [formGroup]="form" (submit)="aceptar()">
+        <mat-form-field class="example-full-width">
+          <mat-label>Codigo</mat-label>
+          <input matInput placeholder="Codigo" formControlName="idAsesor" />
+        </mat-form-field>
+        <br/>
+        <mat-form-field class="example-full-width">
+          <mat-label>Nombre</mat-label>
+          <input matInput placeholder="Nombre" formControlName="nom" />
+        </mat-form-field>
+        <br/>
+        <mat-form-field class="example-full-width">
+          <mat-label>Apellido</mat-label>
+          <input matInput placeholder="Apellido" formControlName="ape" />
+        </mat-form-field>
+        <br/>
+        <mat-form-field class="example-full-width">
+          <mat-label>Telefono</mat-label>
+          <input matInput placeholder="Telefono" formControlName="tel" />
+        </mat-form-field>
+        <br/>
+        <mat-form-field class="example-full-width">
+          <mat-label>Correo</mat-label>
+          <input matInput placeholder="Correo@gmail.com" formControlName="correo" />
+        </mat-form-field>
+        <br/>
+        <span style="font-weight: bold;">Sustento</span>
+
+        <div style="align-items: center;">
+
+
+            <label class="file-input">
+                <span style="color: #fff;">Seleccionar archivo</span>
+                <input            
+                  (change)="onFileChanged($event)"
+                  type="file"
+                  formControlName="arch"
+                />
+
+              </label>
+
+        </div>
+        <p style="width: 100%; font-weight: bold;">{{namearch}}</p>
+ 
+        <mat-form-field class="example-full-width">
+          <mat-label>Usuario</mat-label>
+          <input matInput placeholder="Usuario" formControlName="username" />
+        </mat-form-field>
+        <br/>
+        <mat-form-field class="example-full-width">
+          <mat-label>Contraseña</mat-label>
+          <input matInput placeholder="Contraseña" formControlName="password" />
+        </mat-form-field>
+
+        <div class="btn-container">
+          <button mat-raised-button style="background:#1e878f; color: #fff;">Aceptar</button>
+          <button mat-raised-button style="background:#fff; color: #000;" mat-button routerLink="/loginasesor">Cancelar</button>
+        </div>
+        <br/>
+
+        <p style="color: red; font-weight: bold;">{{ mensaje }}</p>
+
+        
+      </form>
+    </div>
+  </body>
+</html>
