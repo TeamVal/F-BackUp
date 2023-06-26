@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1 class="t-table">Ingresa una solicitud </h1>
+  <br>
+  <div class="container" style="text-align: center">
+
+    <form [formGroup]="form" (submit)="aceptar()">
+      <mat-form-field class="example-full-width">
+        <mat-label>Id</mat-label>
+        <input matInput placeholder="idsolicitud" formControlName="idsolicitud">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Nombre</mat-label>
+        <input matInput required placeholder="Nombre" formControlName="nombre">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Descripcion</mat-label>
+        <input matInput required placeholder="Descripcion" formControlName="descrip">
+      </mat-form-field>
+      
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha de solicitud</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="fechasol" >
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+
+
+
+
+      <button mat-raised-button  style="background:#1e878f; color: #fff;" (click)="aceptar()" >Aceptar</button>
+      <button mat-raised-button [routerLink]="['/pages','homeestudiante', this.idestudiante, 'e-solicitud', this.idestudiante]">Cancelar</button>
+      <p>{{mensaje}}</p>
+
+    </form>
+  </div>
+
+</body>
+</html>
+
+

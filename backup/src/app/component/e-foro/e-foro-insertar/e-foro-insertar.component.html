@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1 class="t-table">Publica un nuevo foro</h1>
+
+
+  <div class="container" >
+    <form [formGroup]="form" (submit)="aceptar()">
+      <mat-form-field class="example-full-width" *ngIf="!isHidden">
+        <mat-label>Id</mat-label>
+        <input matInput placeholder="Id" formControlName="idforo" >
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Título</mat-label>
+        <input matInput required placeholder="Título" formControlName="titulo">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" style="  height: 200px;">
+        <mat-label>Texto</mat-label>
+        <input matInput required placeholder="Texto" formControlName="texto">
+      </mat-form-field>
+
+      
+
+
+      <div class="containerbtn">
+        <button mat-raised-button  style="background:#1e878f; color: #fff;" (click)="aceptar()" >Aceptar</button>
+        <button mat-raised-button [routerLink]="['/pages','homeestudiante', this.idestudiante, 'e-foro', this.idestudiante]">Cancelar</button>
+      </div>
+     
+      <p>{{mensaje}}</p>
+
+    </form>
+  </div>
+
+</body>
+</html>
+
+
