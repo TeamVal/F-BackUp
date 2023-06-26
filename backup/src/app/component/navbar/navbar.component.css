@@ -1,13 +1,36 @@
-.f-nav{
+.f-nav {
     background-color: #B1ABF8;
-    color:white;  
-}
-span{
-    color: black;
-}
-
-
-img{
-    height: 60px;
-    width: auto;
-}
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:left;
+    align-items: center;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+  }
+  
+  .logo img {
+    height: 40px;
+  }
+  
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .logout {
+    padding: 16px;
+    margin-left: auto;
+   }
+  
+  .logoutbtn {
+    border-radius: 5px;
+    background-color: #1e878f;
+  }
+  
+  
