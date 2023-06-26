@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <h1 class="t-table">{{ editar ? 'Actualizar Modulo' : 'Registrar Modulo' }}</h1>
+
+    <div class="container">
+
+      <form [formGroup]="form" (submit)="aceptar()">
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Id</mat-label>
+        <input matInput placeholder="Id" formControlName="idmodulo">
+      </mat-form-field>
+
+
+            <mat-form-field class="example-full-width">
+        <mat-label>Titulo</mat-label>
+        <input matInput required placeholder="Titulo" formControlName="titulo">
+      </mat-form-field>
+
+    
+    
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Descripcion</mat-label>
+        <input matInput required placeholder="Descripcion" formControlName="descripcion">
+      </mat-form-field>
+
+      
+    
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Estado</mat-label>
+        <mat-select formControlName="estado">
+          <mat-option value="Disponible">Disponible</mat-option>
+          <mat-option value="Bloqueado">Bloqueado</mat-option>
+          <mat-option value="No visible">No visible</mat-option>
+
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Recurso</mat-label>
+      
+        <mat-select formControlName="recurso" [(value)]="idrecurselectionado" required>
+          <mat-option *ngFor="let m of listar" [value]="m.idrecurso">
+            {{m.titulo}}
+        </mat-option>
+        </mat-select>
+      </mat-form-field>
+ 
+      <div class="botones-container">
+
+        <button mat-raised-button style="background:#1e878f; color: #fff;"  (click)="aceptar()">Aceptar</button>
+
+        <button  mat-raised-button [routerLink]="['/pages','homeasesor', idasesor, 'a-modulo', idasesor, idmicro]">Cancelar</button>
+      </div>
+    
+      <p>{{mensaje}}</p>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
