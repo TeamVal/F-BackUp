@@ -1,0 +1,25 @@
+.backcolor{
+    background-color:  #B1ABF8;
+  }
+  
+  html, body{
+    height: 1000px;
+    width: 100%;
+  }
+  
+  
+  /* titulo de la tabla */
+  .t-table{
+    color:#1e878f;
+    text-align: center;
+    font-size: 29px;
+    font-weight: bold;
+  }
+  
+  mat-paginator{
+    font-size: 18px;
+    color:black;
+    border-radius: 5px;
+    border: 1px inset black;
+  
+  }
