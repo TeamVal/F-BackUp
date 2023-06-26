@@ -10,6 +10,7 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   login(request: JwtRequest) {
+    //corrección para la conexión
     return this.http.post("http://localhost:8084/authenticate", request);
   }
 
