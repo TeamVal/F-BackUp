@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    <br>
+    <div style=" text-align: center;">
+      <h1 class="t-table" > Microcurso: {{microtitulo}}     </h1>
+      <p style="text-align: justify; font-size: 18px;" >
+        <strong>Descripción: </strong>  {{microdescripcion}}     
+      </p>
+      <p style="text-align: justify; font-size: 18px;" >
+        Estamos emocionados de acompañarte en este viaje de aprendizaje 
+        y estamos seguros de que encontrarás estos módulos tanto 
+        desafiante como gratificante.       </p>
+    </div>
+
+    <div >
+        <div style="text-align:right;">
+        <button mat-button class="style-btn" [routerLink]="['/pages','homeestudiante',idestudiante,'e-microcursos',idestudiante]">
+          <mat-icon>keyboard_backspace</mat-icon>
+          Regresar</button>
+        </div>
+    </div>
+    <br>
+    <div style="text-align: center;">
+      <div class="custom-form-field">
+        <input class="custom-input" type="text" (keyup)="filtrar($event)" placeholder="Buscar">
+      </div>
+    </div>
+    
+
+    <div class="card-container">
+        <div class="card" *ngFor="let element of dataSource.data.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)">
+          <!-- Contenido de la card -->
+          <!-- Contenido de la card -->
+          <div class="card-header">
+            <mat-icon class="t-icon"> list_alt</mat-icon>
+            <h2 class="card-title">{{ element.titulo }}</h2>
+          </div>
+          <div class="card-body">
+            <p><strong> N°: </strong> {{ element.idmodulo }}</p>
+            <p><strong>Descripción:</strong> {{ element.descripcion }}</p>
+            <p><strong>Estado:</strong> {{ element.estado }}</p>
+            <p><strong>Recurso:</strong> {{ element.recurso.titulo }}</p>
+          </div>
+        </div>
+      </div>
+      <br>
+      <mat-paginator
+        [length]="totalItems"
+        [pageSize]="itemsPerPage"
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="onPageChanged($event)"
+      ></mat-paginator>
+  </div>
+</body>
+
+</html>
