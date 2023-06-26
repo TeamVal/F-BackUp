@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    <br>
+    <h1 class="t-table">Comentarios del Foro: {{foroTitulo}}</h1>
+
+    <div class="foro">
+      <h1 style="text-align: justify; font-size: 24px; color: #fff;"><strong style="color: #000;">Descripción:</strong> {{foroTexto}}</h1>
+      <p style="text-align: justify; font-size: 18px; color: #fff;"><strong style="color: #000;">Fecha de publicación:</strong> {{foroFecha}}</p>
+      <p style="text-align: justify; font-size: 18px; color: #fff; "><strong style="color: #1e878f;">Aviso:</strong> Se responsable, claro y respetuoso con tus comentarios</p>
+    </div>
+    <br>
+
+    <div >
+      <div style="text-align:right;">
+        <button mat-button class="style-btn" [routerLink]="['/pages','homeestudiante',idestudiante,'e-foro',idestudiante]">
+          <mat-icon>keyboard_backspace</mat-icon>
+          Regresar</button>
+        </div>
+
+        <div style="text-align:left;">
+            <button mat-button class="style-btn" [routerLink]="['e-comentarioinsertar',idestudiante, idforo]">
+              <mat-icon>add_box</mat-icon>
+              Comentar</button>          
+        
+          </div>
+
+        
+    </div>
+
+    <br>
+    <div style="text-align: center;">
+      <div class="custom-form-field">
+        <input class="custom-input" type="text" (keyup)="filtrar($event)" placeholder="Buscar">
+      </div>
+    </div>
+
+    <div class="card-container">
+        <div class="card" *ngFor="let element of dataSource.data.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)">
+          <!-- Contenido de la card -->
+          <!-- Contenido de la card -->
+          <div class="card-header">
+            <mat-icon class="t-icon">person</mat-icon>
+            <h2 class="card-title">{{ element.estudiante.nombre }}</h2>
+          </div>
+          <div class="card-body">
+            <p><mat-icon >sms</mat-icon>
+              {{ element.texto }}</p>
+            <p style="text-align: right;">{{ element.fechapublic }}</p>
+          </div>
+          <div class="card-footer" *ngIf="element.estudiante.idEstudiante.toString() === idestudiante.toString()" >
+            <div class="icon-container">
+              <mat-icon class="edit-icon" [routerLink]="['edicion', idestudiante, idforo,element.idcomentario ]">border_color</mat-icon>
+            </div>
+            <div class="icon-container">
+              <mat-icon class="delete-icon" (click)="confirmar(element.idcomentario)">delete</mat-icon>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+      <br>
+      <mat-paginator
+        [length]="totalItems"
+        [pageSize]="itemsPerPage"
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="onPageChanged($event)"
+      ></mat-paginator>
+  </div>
+</body>
+
+</html>

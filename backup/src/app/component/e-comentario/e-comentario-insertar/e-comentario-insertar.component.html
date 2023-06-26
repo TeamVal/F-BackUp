@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1 class="t-table">{{ editar ? 'Actualizar comentario' : 'Registrar comentario' }}</h1>
+
+  <div class="container">
+
+    <div class="container">
+      <form [formGroup]="form" (submit)="aceptar()">
+
+      <mat-form-field class="example-full-width" *ngIf="!isHidden">
+        <mat-label>Id</mat-label>
+        <input matInput placeholder="Id" formControlName="idcomentario">
+      </mat-form-field>
+
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Texto</mat-label>
+        <input matInput required placeholder="Titulo" formControlName="texto">
+      </mat-form-field>
+
+    
+
+
+      <div class="botones-container">
+
+        <button mat-raised-button style="background:#1e878f; color: #fff;"  (click)="aceptar()">Aceptar</button>
+
+        <button  mat-raised-button [routerLink]="['/pages','homeestudiante', this.idestudiante, 'e-comentario', this.idestudiante,this.idforo]">Cancelar</button>
+      </div>
+    
+      <p>{{mensaje}}</p>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

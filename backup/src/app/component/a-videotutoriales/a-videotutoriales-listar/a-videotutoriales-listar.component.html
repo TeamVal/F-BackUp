@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  
+  <body>
+    <div class="container">
+      <div style="text-align: center;">
+        <br />
+        <h1 class="t-table">Lista de videotutoriales</h1>
+      </div>
+      <div style="text-align: left;">
+        <button mat-raised-button class="style-btn"  [routerLink]="['a-videotutorialesinsertar',idasesor]">
+          <mat-icon>add_box</mat-icon>
+          Nuevo
+        </button>
+      </div>
+      <br />
+      <div style="text-align: center;">
+        <div class="custom-form-field">
+          <input class="custom-input" type="text" (keyup)="filtrar($event)" placeholder="Buscar">
+        </div>
+      </div>
+    
+      <div class="card-container">
+        <div class="card" *ngFor="let element of dataSource.data.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)">
+          <!-- Contenido de la card -->
+          <!-- Contenido de la card -->
+          <div class="card-header">
+            <ng-container *ngIf="element.url">
+              <iframe width="320" height="180" [src]="sanitizarUrl(element.url)" frameborder="0" allowfullscreen></iframe>
+            </ng-container>
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">{{ element.titulo }}</h2>            
+            <p>{{ element.fechaSubida | date:'dd/MM/yyyy' }}</p>
+            <p><strong>Asesor:</strong> {{ element.asesor.nom }}</p>
+            <p><strong>Lenguaje:</strong> {{ element.lenguaje.tipoLeng }}</p>
+          </div>
+          <div class="card-footer">
+            <div class="icon-container">
+              <mat-icon class="edit-icon" [routerLink]="['edicion', idasesor, element.idVideoTutorial]">border_color</mat-icon>
+            </div>
+            <div class="icon-container">
+              <mat-icon class="delete-icon" (click)="confirmar(element.idVideoTutorial)">delete</mat-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <mat-paginator
+        [length]="totalItems"
+        [pageSize]="itemsPerPage"
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="onPageChanged($event)"
+      ></mat-paginator>
+    </div>
+
+  </body>
+</html>

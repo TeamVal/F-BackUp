@@ -1,11 +1,52 @@
-<mat-toolbar class="f-nav">
-    <img  src="https://i.ibb.co/2nC6nbp/icononav.png"  routerLink="/asesores" alt="">
+<mat-toolbar class="f-nav" *ngIf="verificar()">
+  <div class="logo">
+    <img src="https://i.ibb.co/dpG91SZ/1d548c1b-4afe-4e01-a2ab-1f2b871efba1.jpg" alt="Logo">
+  </div>
 
-    <button mat-button routerLink="/asesores">Asesor</button>
-    <button mat-button routerLink="/estudiantes">Estudiante</button>
-    <button mat-button routerLink="/lenguajes">Lenguaje</button>
-    <button mat-button routerLink="/recursos">Recurso Aprendizaje</button>
-    <button mat-button routerLink="/administradores">Administradores</button>
+
+    <div class="nav-links" *ngIf="role=='ADMINISTRADOR'">
+      <button mat-button routerLink="/pages/homeadmin/asesores">Asesor</button>
+      <button mat-button routerLink="/pages/homeadmin/estudiantes">Estudiante</button>
+      <button mat-button routerLink="/pages/homeadmin/lenguajes">Lenguaje</button>
+      <button mat-button routerLink="/pages/homeadmin/recursos">Recurso Aprendizaje</button>
+      <button mat-button routerLink="/pages/homeadmin/videotutoriales">Videotutoriales</button>
+      <button mat-button routerLink="/pages/homeadmin/microcursos">Microcursos</button>
+      <button mat-button routerLink="/pages/homeadmin/metodopagos">Metodo de pagos</button>
+      <button mat-button routerLink="/pages/homeadmin/modulos">Modulos</button>
+      <button mat-button routerLink="/pages/homeadmin/reportes">Reporte</button>
+    </div>
+    <div class="logout" *ngIf="role=='ADMINISTRADOR'">
+        <button class="logoutbtn" mat-button (click)="cerrar()" routerLink="/loginadmin">SALIR</button>
+    </div>
+
+
+
+
+    <div class="nav-links" *ngIf="role=='ESTUDIANTE'">
+      <button mat-button [routerLink]="['/pages','homeestudiante',idestudiante,'e-metodopago',idestudiante]">Metodo de pago</button>
+      <button mat-button [routerLink]="['/pages','homeestudiante',idestudiante,'e-videotutoriales' ]">Videotutoriales</button>
+      <button mat-button [routerLink]="['/pages','homeestudiante',idestudiante,'e-microcursos',idestudiante ]">Microcursos</button>
+      <button mat-button [routerLink]="['/pages','homeestudiante',idestudiante,'e-foro',idestudiante ]">Foro</button>
+      <button mat-button [routerLink]="['/pages','homeestudiante',idestudiante,'e-solicitud',idestudiante ]">Solicitudes</button>
+      <button mat-button [routerLink]="['/pages','homeestudiante',idestudiante,'e-asesoria',idestudiante ]">Asesoria</button>
+
+    </div>
+    <div class="logout" *ngIf="role=='ESTUDIANTE'">
+      <button class="logoutbtn" mat-button (click)="cerrar()" routerLink="/loginestudiante">SALIR</button>
+    </div>
+
+
+
+    <div class="nav-links" *ngIf="role=='ASESOR'">
+      <button mat-button [routerLink]="['/pages','homeasesor',idasesor,'a-videotutoriales',idasesor]">Videotutoriales</button>
+      <button mat-button [routerLink]="['/pages','homeasesor',idasesor,'a-microcurso',idasesor]">Microcursos</button>
+      <button mat-button [routerLink]="['/pages','homeasesor',idasesor,'a-recurso',idasesor ]">Recursos</button>
+      <button mat-button [routerLink]="['/pages','homeasesor',idasesor,'a-solicitud',idasesor ]">Solicitudes</button>
+      <button mat-button [routerLink]="['/pages','homeasesor',idasesor,'a-asesoria',idasesor ]">Asesorias</button>
+    </div>
+    <div class="logout" *ngIf="role=='ASESOR'">
+      <button mat-button class="logoutbtn" [routerLink]="['/loginasesor' ]" (click)="cerrar()">SALIR</button>
+    </div>
 
 </mat-toolbar>
   
